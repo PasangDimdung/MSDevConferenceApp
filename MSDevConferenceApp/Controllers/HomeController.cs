@@ -33,5 +33,33 @@ namespace MSDevConferenceApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet]
+        public ViewResult RegisterForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult RegisterForm(WebinarInvites registrationResponse)
+        {
+            //Checks form is valid or not before registration
+            if (ModelState.IsValid)
+            {
+
+                Repository.AddResponse(registrationResponse);
+                return View("ThankYou", registrationResponse);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ViewResult ListResponses()
+        {
+            //Passes list of objects with WillJoin property true
+            return View(Repository.Responses.Where(x => x.WillJoin == true));
+        }
     }
 }

@@ -1,0 +1,21 @@
+﻿@model WebinarInvites
+@{
+    ViewData["Title"] = "ThankYou";
+}
+
+@if(Model.WillJoin == true)
+{
+<div class="text-center">
+    Congrats - @Model.Name,
+    <p>Your seat is reserved for the Microsoft Developer Conference.</p>
+    <p>Thank you for registering for the Microsoft Developer Conference.</p>
+    <p>Please join on time!</p>
+</div>
+
+}
+else
+{
+    <h3>Sorry to hear that you cannot make it.</h3>
+}
+<div>Click <a asp-action="ListResponses"> here</a>to see who is coming</div>
+

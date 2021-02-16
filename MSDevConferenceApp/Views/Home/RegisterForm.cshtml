@@ -1,0 +1,32 @@
+﻿@model WebinarInvites
+@{
+    ViewData["Title"] = "RegisterForm";
+}
+
+<h5 class="bg-primary text-white text-center p-2">Registration Form</h5>
+
+<form asp-action="RegisterForm" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <label asp-for="Name">Your name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Your email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Your phone</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="WillJoin">Will ypu attend?</label>
+        <select asp-for="WillJoin" class="form-control">
+            <option value=""> Choose an option</option>
+            <option value="true">Yes, I'll join Virtual Conference.</option>
+            <option value="false">No, I'll not able to attend Virtual Conference.</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Registration</button>
+</form>
